@@ -6,7 +6,7 @@
     <title>Espai personal</title>
     <style>
     body {
-        background-color: lightgreen;
+        background-color: lightyellow;
     }
     </style>
 </head>
