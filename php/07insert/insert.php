@@ -39,7 +39,7 @@
         <p>S'han insertat els valors següents:</p>
         <ul>
             <li>Missatge: <?= $contingut ?></li>
-            <li>Dia i hora: <?= $dia_i_hora ?> °C</li>
+            <li>Dia i hora: <?= $dia_i_hora ?></li>
         </ul>
 
         <p><a href="select.php">Veure tots els missatges</a></p>
