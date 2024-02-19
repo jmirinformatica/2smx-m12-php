@@ -7,19 +7,6 @@
     <body>
         <h1>Exemple d'accés a base de dades</h1>
 
-        <p>Llistat de jugadors i jugadores que hi ha a la taula <code>futbolistes</code> creada amb el codi següent:</p>
-        <pre>
-        <code>
-        CREATE TABLE futbolistes (
-            id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            nom varchar(255) NOT NULL
-        );
-
-        INSERT INTO futbolistes(nom) VALUE ('Leo Messi');
-        INSERT INTO futbolistes(nom) VALUE ('Aitana Bonmatí');
-        </code>
-        </pre>
-
         <ul>
         <?php
             //obro la connexió a la base de dades
@@ -32,7 +19,7 @@
             $result = mysqli_query($conn, $sql);
 
             //bucle que recorre tots els resultats
-            while($row = mysqli_fetch_array($result)):
+            while($row = mysqli_fetch_array($result)) {
         ?>
 
             <li>
@@ -40,7 +27,7 @@
             </li>
 
         <?php
-            endwhile;
+            }
 
             // tanco la connexió
             $result->close();
