@@ -1,0 +1,3 @@
+remote="user@domain:/some/path"
+port=22
+password="SOME_PASSWORD"
