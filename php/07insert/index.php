@@ -8,7 +8,7 @@
     <body>
         <h1>Exemple de fer inserts i selects a la base de dades</h1>
 
-        <form method="POST" action="insert.php">
+        <form method="POST" action="registre.php">
             <p><label>Missatge: <input type="text" name="contingut" required /></label></p>
             <p><input type="submit" value="Envia!" /></p>
         </form>

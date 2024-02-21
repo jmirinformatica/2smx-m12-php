@@ -42,7 +42,7 @@
             <li>Dia i hora: <?= $dia_i_hora ?></li>
         </ul>
 
-        <p><a href="select.php">Veure tots els missatges</a></p>
+        <p><a href="resultats.php">Veure tots els missatges</a></p>
         <p><a href="index.php">Inserir un nou missatge</a></p>
     </body>
 </html>
