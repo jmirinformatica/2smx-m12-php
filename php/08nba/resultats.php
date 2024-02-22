@@ -39,6 +39,10 @@
                             <input type="hidden" name="id" value="<?= $row['id'] ?>">
                             <input type="submit" value="Esborrar">
                         </form>
+                        <form method="GET" action="formulari_canvi.php">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                            <input type="submit" value="Editar">
+                        </form>
                     </td>
                 </tr>
 
