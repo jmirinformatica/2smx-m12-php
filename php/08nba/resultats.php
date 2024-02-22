@@ -1,3 +1,15 @@
+<?php
+    function get($param, $valor_per_defecte) {
+        if (isset($_GET[$param])) {
+            return $_GET[$param];
+        } else {
+            return $valor_per_defecte;
+        }
+    }
+
+    //variable per get
+    $ordre = get("ordre", "nom_jugador");
+?>
 <!DOCTYPE html>
 <html lang="ca">
     <head>
@@ -10,9 +22,9 @@
 
         <table border="1">
             <tr>
-                <th>Jugador</th>
-                <th>Dorsal</th>
-                <th>Equip</th>
+                <th><a href="?ordre=nom_jugador">Jugador</a></th>
+                <th><a href="?ordre=dorsal">Dorsal</a></th>
+                <th><a href="?ordre=nom_equip">Equip</a></th>
                 <th>Accions</th>
             </tr>
 
@@ -21,7 +33,7 @@
                 $conn = mysqli_connect('localhost', 'pablo0', 'Melilla2024', "pablo0_db");
 
                 //consulta SQL que es farà servir
-                $sql = 'SELECT id, nom_jugador, dorsal, nom_equip FROM jugadors_nba';
+                $sql = "SELECT id, nom_jugador, dorsal, nom_equip FROM jugadors_nba ORDER BY $ordre";
 
                 //resultats de la consulta
                 $result = mysqli_query($conn, $sql);
