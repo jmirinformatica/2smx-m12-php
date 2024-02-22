@@ -21,7 +21,7 @@
                 $conn = mysqli_connect('localhost', 'pablo0', 'Melilla2024', "pablo0_db");
 
                 //consulta SQL que es farà servir
-                $sql = 'SELECT jugadors_nba.id, jugadors_nba.nom_jugador, jugadors_nba.dorsal, equips_nba.nom_equip FROM jugadors_nba JOIN equips_nba ON jugadors_nba.equip_id = equips_nba.id';
+                $sql = 'SELECT id, nom_jugador, dorsal, nom_equip FROM jugadors_nba';
 
                 //resultats de la consulta
                 $result = mysqli_query($conn, $sql);

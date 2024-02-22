@@ -13,14 +13,14 @@
             <p><label>Dorsal: <input type="number" name="dorsal" required /></label></p>
 
             <p>
-                <label>Equip: <select name="equip_id">
+                <label>Equip: <select name="equip">
 
                 <?php
                     //obro la connexió a la base de dades
                     $conn = mysqli_connect('localhost', 'pablo0', 'Melilla2024', "pablo0_db");
 
                     //consulta SQL que es farà servir
-                    $sql = 'SELECT id, nom_equip FROM equips_nba';
+                    $sql = 'SELECT nom_equip FROM equips_nba';
 
                     //resultats de la consulta
                     $result = mysqli_query($conn, $sql);
@@ -28,7 +28,7 @@
                     //bucle que recorre tots els resultats
                     while($row = mysqli_fetch_array($result)):
                 ?>
-                        <option value="<?= $row['id'] ?>"><?= $row['nom_equip'] ?></option>
+                        <option value="<?= $row['nom_equip'] ?>"><?= $row['nom_equip'] ?></option>
                 <?php
                     endwhile;
                     

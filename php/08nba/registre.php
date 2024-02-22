@@ -10,13 +10,13 @@
     //variable per post
     $jugador = post("jugador", "?????");
     $dorsal = post("dorsal", "0");
-    $equip_id = post("equip_id", "0");
+    $equip = post("equip", "?????");
 
     //obro la connexió a la base de dades
     $conn = mysqli_connect('localhost', 'pablo0', 'Melilla2024', "pablo0_db");
 
     // Sentència SQL per a la inserció
-    $sql = "INSERT INTO jugadors_nba (nom_jugador, dorsal, equip_id) VALUES ('$jugador', '$dorsal', '$equip_id')";
+    $sql = "INSERT INTO jugadors_nba (nom_jugador, dorsal, nom_equip) VALUES ('$jugador', '$dorsal', '$equip')";
 
     // Executar la consulta d'inserció
     mysqli_query($conn, $sql);
