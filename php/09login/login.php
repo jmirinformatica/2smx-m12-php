@@ -18,25 +18,46 @@ $contrasenya = post("contrasenya", "?????");
 $conn = mysqli_connect('localhost', 'pablo0', 'Melilla2024', "pablo0_db");
 
 // Consulta per comprovar les credencials
-$sql = "SELECT * FROM usuaris WHERE usuari='$usuari' AND contrasenya='$contrasenya'";
+$sql = "SELECT contrasenya FROM usuaris WHERE usuari='$usuari'";
+
+// Resultats de la consulta
 $result = mysqli_query($conn, $sql);
 
-$num_resultats = mysqli_num_rows($result);
+// Comprovar si l'usuari existeix a la base de dades
+$contrasenya_correcta = false;
+
+// Comprovar si l'usuari existeix a la base de dades
+if (mysqli_num_rows($result) == 1) {
+    
+    // Obtenir les dades de l'usuari
+    $row = mysqli_fetch_assoc($result);
+    
+    // Verificar la contrasenya
+    if ($contrasenya == $row['contrasenya']) {
+        
+        // Inici de sessió correcte
+        $_SESSION['usuari'] = $usuari;
+        $contrasenya_correcta = true;
+
+    } else {
+        // Inici de sessió fallit
+        echo "Contrasenya incorrecta";
+        $contrasenya_correcta = false;
+    }
+} else {
+    // Inici de sessió fallit (usuari no trobat)
+    echo "L'usuari no existeix";
+    $contrasenya_correcta = false;
+}
 
 // Tancar la connexió
 mysqli_close($conn);
 
-// Comprovar si l'usuari existeix a la base de dades
-if ($num_resultats == 0) {
-    // Inici de sessió fallit
-    echo "Nom d'usuari o contrasenya incorrectes.";
-    header("Location: index.php");
-    exit();
-} else {
-    // Inici de sessió correcte
-    $_SESSION['usuari'] = $usuari;
-    // L'usuari ja estaba autenticat, pot veure el contigut protegit
+if($contrasenya_correcta) {
+    // L'usuari ja està autenticat, pot veure el contigut protegit
     header("Location: protegit.php");
     exit();
+} else {
+    echo "<br/><a href='index.php'>Torna a fer login</a>";
 }
 ?>
