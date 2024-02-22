@@ -37,7 +37,8 @@
     <body>
         <h1>NBA!</h1>
 
-        <form method="POST" action="registre.php">
+        <form method="POST" action="canvi.php">
+            <input type="hidden" name="id" value="<?= $jugador['id'] ?>">
             <p><label>Jugador: <input type="text" name="jugador" value="<?= $jugador["nom_jugador"] ?>" required /></label></p>
             <p><label>Dorsal: <input type="number" name="dorsal" value="<?= $jugador["dorsal"] ?>" required /></label></p>
 
